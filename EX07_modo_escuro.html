@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            background-color: 'white';
+            color: black;
+            font: normal 12pt Arial;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div id="texto">UM TEXTO QUALQUER</div>
+    <button onclick="modo_escuro()">Modo Escuro</button>
+    <button onclick="alterna_modo_escuro()">Alternar modo escuro</button>
+
+    <script>
+
+        function modo_escuro() {
+
+            window.document.getElementById('texto').style.color = 'white'
+            window.document.body.style.background = 'black'
+            
+        }
+
+        function alterna_modo_escuro() {
+
+            var cor_bkg_atual = window.document.body.style.backgroundColor;
+
+            if (cor_bkg_atual == 'white') {
+                
+                window.document.getElementById('texto').style.color = 'white'
+                window.document.body.style.background = 'black'
+            } else {
+
+                window.document.getElementById('texto').style.color = 'black'
+                window.document.body.style.background = 'white'
+
+            }
+        }
+
+    </script>
+</body>
+</html>
