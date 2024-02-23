@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    </style>
+
+</head>
+<body>
+           
+    <div>
+        <input type="text" id="input">
+        <button id="botao" onclick="quadrado()">Arrow Function Resumida</button>
+    </div>
+    <div id="saida">
+        Resultado deve aparecer aqui...
+    </div>
+
+    <script>
+
+        // repare que neste caso não é necessário usar as chaves e nem o return
+        const funcaoFlechaComParametro = (n) => n*n;
+
+        function quadrado() {
+            var numero = parseInt(document.getElementById("input").value);
+
+            // aqui invocamos a arrow function para calcular o quadrado do número
+            var quadrado = funcaoFlechaComParametro(numero);
+
+            document.getElementById("saida").innerHTML = quadrado;
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+     
+    <div>
+        <label for="n1">Operando 1</label>
+        <input type="text" id="n1">
+        <label for="n2">Operando 2</label>
+        <input type="text" id="n2">
+        <label for="op">Operador</label>
+        <input type="text" id="op">        
+        <button onclick="calcular()">CALCULAR</button>
+    </div>
+    <div>
+        <label for="res">RESULTADO</label>
+        <p id="res">O resultado deve aparecer aqui</p>
+    </div>
+    
+    <script>
+
+        function calcular() {
+
+            var n1 = Number(document.getElementById("n1").value);
+            var n2 = Number(document.getElementById("n2").value);
+            var op = document.getElementById("op").value;
+            var resultado = 0;
+
+            try {
+                resultado = calculadora(n1, n2, op);
+            }
+            catch(erro) {
+                console.log(erro);
+            }
+            
+            document.getElementById("res").innerHTML = resultado;
+
+        }
+
+        function calculadora(n1, n2, op) {
+
+            op_validos = ["+", "-", "*", "/"];
+
+            if (!op_validos.includes(op)) {
+                throw "O operador digitado é inválido."
+            }
+
+            switch (op) {
+
+                case '+':
+                    resultado = n1 + n2;
+                    break;
+                
+                case '-':
+                    resultado = n1 - n2;
+                    break;                    
+
+                case '*':
+                    resultado = n1 * n2;
+                    break;
+                    
+                case '/':
+                    resultado = n1 / n2;
+                    break;    
+            }
+
+            console.log(typeof(resultado))
+            
+            if (isNaN(resultado)) {
+                throw "A calculadora não obteve um número como resultado."
+            }
+
+            return resultado;
+
+        }
+
+    </script>
+</body>
+</html>
