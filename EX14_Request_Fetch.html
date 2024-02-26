@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" onclick="executaReq()">Requisição dentro de função assíncrona</button>
+    <button type="button" onclick="executaReqThen()">Requisição usando o .then</button>
+
+    <script>
+        async function executaReq() {
+
+            const url = "https://swapi.dev/api/" + "people/1/"; 
+        
+            try {
+                const response = await fetch(url);
+                const dados = await response.json();
+                console.log(dados);
+                // console.log(dados.name);
+                // console.log(dados.mass);
+            } catch(erro) {
+                window.alert(erro)
+            } finally {
+                window.alert("Requisição Finalizada.")
+            }
+        }
+
+        function executaReqThen() {
+            
+            const url = 'https://api.github.com/users/thiagospin'
+            
+            // usando promise com .then, podemos também usar o catch
+            // e não precisamos colocar o FETCH dentro de função assync
+            fetch(url)
+                .then(response => response.json())
+                .then(json => console.log(json))
+                .catch(erro => console.log(erro))
+        }
+
+    </script>
+</body>
+</html>

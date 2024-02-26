@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,4 +36,43 @@
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var cor = window.prompt("Qual a cor do sinal de trânsito?")
+
+        var certeza = window.confirm("Tem certeza?") 
+
+        if (certeza == true) {
+
+            if (cor.toLowerCase() == "verde") {
+                window.alert("siga.");
+            }
+            else if (cor.toLowerCase() == 'amarelo') {
+                window.alert("atenção.");
+            }
+            else if (cor.toLowerCase() == 'vermelho') {
+                window.alert("pare.");
+            }
+            else {
+                window.alert("Cor não reconhecida.")
+            }
+
+        } else {
+            window.location.reload();
+        }
+
+    </script>
+</body>
+>>>>>>> dev
 </html>

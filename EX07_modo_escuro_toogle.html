@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,4 +127,134 @@
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            background-color: 'white';
+            color: black;
+            font: normal 12pt Arial;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        /* The slider */
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+        border-radius: 34px;
+        }
+
+        .slider.round:before {
+        border-radius: 50%;
+        }         
+
+    </style>
+
+</head>
+<body>
+    
+    
+
+    <div>
+        <!-- Rounded switch -->
+        <label class="switch">
+            <input type="checkbox" onchange="alterna_modo_escuro()">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div id="texto">Modo Escuro</div>
+
+    <script>
+
+        function alterna_modo_escuro() {
+
+            var cor_bkg_atual = window.document.body.style.backgroundColor;
+            console.log(cor_bkg_atual)
+
+            if (cor_bkg_atual == 'white' || cor_bkg_atual == '') {
+                
+                window.document.getElementById('texto').style.color = 'white'
+                window.document.body.style.background = 'black'
+                
+                // transição suave
+                //window.document.getElementById('texto').style.transition = '2s'
+                //window.document.body.style.transition = '2s'
+            
+            } else {
+
+                window.document.getElementById('texto').style.color = 'black'
+                window.document.body.style.background = 'white'
+                //window.document.getElementById('texto').style.transition = '2s'
+                //window.document.body.style.transition = '2s'
+
+            }
+        }
+
+    </script>
+</body>
+>>>>>>> dev
 </html>

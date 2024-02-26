@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,4 +45,52 @@
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .azul{
+            color: blue;
+        }
+        .vermelho{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="azul">Item A</li>
+        <li class="vermelho">Item B</li>
+        <li class="azul">Item C</li>
+        <li class="vermelho">Item D</li>
+        <li class="azul">Item E</li>
+        <li class="vermelho">Item F</li>
+    </ul>
+
+    <button onclick="alternar()">Alternar Cor</button>
+    <script>
+
+
+        function alternar() {
+
+            var lista = document.querySelectorAll("li");
+
+            for (let i of lista) {
+                if (i.classList == "azul") {
+                    i.classList.remove("azul");
+                    i.classList.add("vermelho");
+                }
+                else {
+                    i.classList.remove("vermelho");
+                    i.classList.add("azul");
+                }
+            }
+        }
+
+    </script>
+</body>
+>>>>>>> dev
 </html>

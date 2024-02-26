@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,4 +43,50 @@
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>OI 1</div>
+    <div>OI 2</div>
+    <p>qualquer coisa</p>
+    <p id="meuID">qualquer coisa 2</p>
+
+
+    <script>
+
+        // recuperar a lista de elementos por nome de tag html
+        var lista = window.document.getElementsByTagName("div");
+        console.log(lista[1].innerHTML);
+
+        // inserir um novo elemento (nova tag) no html
+        var tag = document.createElement("div");
+        var conteudo = document.createTextNode("Conteúdo da DIV criada pelo javaScript");
+        tag.appendChild(conteudo);
+        document.body.appendChild(tag);
+
+        // recuperar o elemento pelo id (aqui só retorna um)
+        var elemento = window.document.getElementById("meuID");
+        
+        // alterar o conteúdo de uma tag
+        elemento.innerHTML = "Sobreescrevi outra coisa";
+
+        // alterar atributos de uma tag
+        elemento.setAttribute("style", "color:Red");
+        elemento.setAttribute("title", "Eu não faço nada... kkk");
+
+        // recuperar atributos de uma tag
+        console.log(elemento.getAttribute("style"));
+
+
+    </script>
+</body>
+>>>>>>> dev
 </html>
