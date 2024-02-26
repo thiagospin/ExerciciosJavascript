@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON</title>
+	<script>
+		var request = new XMLHttpRequest();
+		var endPoint = 'https://swapi.dev/api/people/2/';
+		request.open('GET', endPoint, true);
+		request.onload = function() {
+			var data = JSON.parse(request.responseText);
+			console.log(data);
+			//console.log(data.name);
+		}
+		request.send();
+
+	/*
+		var request2 = new XMLHttpRequest();
+		var endPoint = 'https://economia.awesomeapi.com.br/last/USD-BRL';
+		request.open('GET', endPoint, true);
+		request.onload = function() {
+			var data = JSON.parse(request.responseText);
+			console.log(data);
+		}
+		request.send();
+	*/
+
+	</script>
+</head>
+<body>
+</body>
+</html>
