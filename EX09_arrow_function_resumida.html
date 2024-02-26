@@ -16,8 +16,10 @@
         <input type="text" id="input">
         <button id="botao" onclick="quadrado()">Arrow Function Resumida</button>
     </div>
-    <div id="saida">
-        Resultado deve aparecer aqui...
+
+    <div>
+        <input type="text" id="input2">
+        <button id="botao2">Arrow Function com Event Listener</button>
     </div>
 
     <script>
@@ -30,10 +32,15 @@
 
             // aqui invocamos a arrow function para calcular o quadrado do número
             var quadrado = funcaoFlechaComParametro(numero);
-
-            document.getElementById("saida").innerHTML = quadrado;
+            console.log(quadrado);
         }
 
+
+        // Arrow function usada como uma callback function no eventListener
+        document.getElementById("botao2").addEventListener("click", () => {
+            var numero2 = parseInt(document.getElementById("input2").value);
+            console.log(numero2 * numero2) 
+        })    
 
     </script>
 </body>
