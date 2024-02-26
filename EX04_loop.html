@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,53 +45,4 @@
 
     </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <label for="numero1">Digite o primeiro número:</label>
-    <input type="text" id="numero1" name="numero1" required>
-
-    <label for="numero2">Digite o primeiro número:</label>
-    <input type="text" id="numero2" name="numero2" required>
-
-    <button onclick="numerosInteiros()">GERAR INTERVALO</button>
-    <button onclick="somatorio()">SOMATÓRIO</button>
-
-    <script>
-
-        function numerosInteiros() {
-
-            var n1 = window.document.getElementById('numero1').value;
-            var n2 = window.document.getElementById('numero2').value;
-
-            for (i = parseInt(n1); i <= parseInt(n2); i++) {
-                console.log(i);
-            }
-        }
-
-        function somatorio() {
-
-            var n1 = window.document.getElementById('numero1').value;
-            var n2 = window.document.getElementById('numero2').value;
-
-            var soma = 0;
-
-            for (i = parseInt(n1); i <= parseInt(n2); i++) {
-                soma += i;
-            }
-
-            console.log(soma);
-}
-
-    </script>
-</body>
->>>>>>> dev
 </html>

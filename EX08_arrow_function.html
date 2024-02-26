@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,57 +49,4 @@
 
     </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <style>
-    </style>
-
-</head>
-<body>
-    
-    <div id="botao1">
-        <button onclick="funcaoFlechaSemParametro()">Executar Arrow Function sem Parâmetros</button>
-    </div>
-    <div id="saida1">
-        Testando Arrow Function sem Parâmetros
-    </div>
-    
-    <div>
-        <input type="text" id="input">
-        <button id="botao2" onclick="quadrado()">Executar Arrow Function sem Parâmetros</button>
-    </div>
-    <div id="saida2">
-        Testando Arrow Function sem Parâmetros
-    </div>
-
-    <script>
-
-        const funcaoFlechaSemParametro = ( ) => {
-		    document.getElementById("saida1").innerHTML = "Arrow Function executada.";
-             
-	    };
-
-        const funcaoFlechaComParametro = (n) => {
-            return n*n;
-	    };
-
-        function quadrado() {
-            var numero = parseInt(document.getElementById("input").value);
-
-            // aqui invocamos a arrow function para calcular o quadrado do número
-            var quadrado = funcaoFlechaComParametro(numero);
-
-            document.getElementById("saida2").innerHTML = quadrado;
-        }
-
-    </script>
-</body>
->>>>>>> dev
 </html>
