@@ -9,8 +9,8 @@
 		request.open('GET', endPoint, true);
 		request.onload = function() {
 			var data = JSON.parse(request.responseText);
-			console.log(data.name);
-			//console.log(data);
+			console.log(data);
+			//console.log(data.name);
 		}
 		request.send();
 
@@ -24,7 +24,6 @@
 		}
 		request.send();
 	*/
-
 
 	</script>
 </head>
