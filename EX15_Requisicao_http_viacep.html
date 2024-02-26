@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container col-md-5">
+    
+      <div class="form-group font-weight-bold">
+        <label>CEP</label>
+        <input type="text" id="cep" pattern="\d{5}-?\d{3}" class="form-control" required placeholder="Insira o seu CEP">
+      </div>
+      <div class="form-group font-weight-bold">
+        <label>Rua</label>
+        <input type="text" class="form-control" id="rua" placeholder="...">
+      </div>
+      <div class="form-group font-weight-bold">
+        <label>Complemento</label>
+        <input type="text" class="form-control" id="complemento" placeholder="...">
+      </div>
+      <div class="form-group font-weight-bold">
+        <label>Bairro</label>
+        <input type="text" class="form-control" id="bairro" placeholder="...">
+      </div>
+      <div class="form-group font-weight-bold">
+        <label>Cidade</label>
+        <input type="text" class="form-control" id="cidade" placeholder="...">
+      </div>
+      <div class="form-group font-weight-bold">
+        <label>Estado</label>
+        <input type="text" class="form-control" id="estado" placeholder="...">
+      </div>
+      <button type="button" id="btnPesquisar" class="btn btn-primary">Pesquisa</button>
+      <button type="button" id="btnLimpar" class="btn btn-danger">Limpar</button>
+    
+  </div>
+
+  <script>
+
+    const btnPesquisarCEP = document.querySelector("#btnPesquisar");
+    btnPesquisarCEP.addEventListener("click", pesquisar)
+
+    function pesquisar() {
+
+      const inputDoCep = document.getElementById("cep");
+      const valorDoCep = inputDoCep.value;    
+      const url = 'https://viacep.com.br/ws/' + valorDoCep + '/json/';
+
+      fetch(url)
+        .then(response => { return response.json(); })
+        .then(data => {
+          if (data.erro) {
+            alert("O CEP DIGITADO ESTÁ INVÁLIDO");
+            return;
+          }
+          atribuirCampos(data);
+        })
+    }
+
+
+    function atribuirCampos(data) {
+      const rua = document.querySelector("#rua");
+      const complemento = document.querySelector("#complemento");
+      const bairro = document.querySelector("#bairro");
+      const cidade = document.querySelector("#cidade");
+      const estado = document.querySelector("#estado");
+
+      rua.value = data.logradouro;
+      complemento.value = data.complemento;
+      bairro.value = data.bairro;
+      cidade.value = data.localidade;
+      estado.value = data.uf;
+    }
+
+  </script>
+</body>
+
+</html>
