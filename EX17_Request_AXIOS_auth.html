@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Content Delivery Network - Local para referenciar a lib do AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+    <img id="imagem"></img>
+
+    <script>
+
+        const access_token = 'HWwR8HwCnIAP3zTcfcy4UndHAIRSaaM6hehhEdqg'
+        var url = `https://api.nasa.gov/planetary/apod?api_key=${access_token}` 
+        
+
+        axios.get(url)
+            .then(function (response) {
+                const refImagem = response.data.url;
+                //console.log(refImagem)
+                document.getElementById("imagem").src = refImagem;
+            })
+            .catch((erro) => console.log(erro))
+
+    </script>
+</body>
+</html>
