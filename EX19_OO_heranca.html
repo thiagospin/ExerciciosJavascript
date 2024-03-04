@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herança com Javascript</title>
+</head>
+<body>
+    
+
+    <script>
+
+        class MembroEscola {
+            constructor(nome, matricula) {
+                this.nome = nome;
+                this.matricula = matricula;
+            }
+        }
+
+        class Professor extends MembroEscola {
+            constructor(nome, matricula, cargaHoraria) {
+                super(nome, matricula);
+                this.cargaHoraria = cargaHoraria;
+            }
+        }
+
+        const p = new Professor("Thiago", "33904", "40");
+        console.log(p.cargaHoraria)
+
+    </script>
+</body>
+</html>
