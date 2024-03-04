@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe Javascript</title>
+</head>
+<body>
+    
+    <script>
+        
+        // Declarando a classe
+        class Retangulo {
+            
+            // método construtor
+            constructor(altura, largura) {
+                this.altura = altura;
+                this.largura = largura;
+            }
+
+            // método para calcular a área
+            calculaArea() {
+                return this.altura * this.largura;
+            }
+        }
+
+        class Circulo {
+            constructor(r) {
+                this.raio = r;
+            }
+
+            calculaArea() {
+                return 3.14 * this.raio * this.raio;
+            }
+        }
+
+        // criando dois novos objetos a partir da classe 
+        const ret_A = new Retangulo(10, 15);
+        const ret_B = new Retangulo(5, 10);
+        
+        const circ_A = new Circulo(10);
+
+        // acionando métodos dos objetos
+        console.log(ret_A.calculaArea());
+        console.log(ret_B.calculaArea());
+        console.log(circ_A.calculaArea());
+
+    </script>
+</body>
+</html>
