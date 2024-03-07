@@ -17,7 +17,7 @@
                 this.#senha = senha;
             }
 
-            validaSenha(s) {
+            autenticaSenha(s) {
                 if (this.#senha === s) {
                     console.log("Você digitou a senha correta");
                 }
@@ -30,10 +30,21 @@
                 return this.#senha;
             }
 
+
             set novaSenha(s) {
-                this.#senha = s;
-                console.log("Nova senha cadastrada com sucesso");
+                
+                console.log("Comprimento da senha: " + s.lenght)
+
+                if (s.lenght == 6) {
+                    this.#senha = s;
+                    console.log("Nova senha cadastrada com sucesso.");
+                }
+                else {
+                    console.log("A senha deve possuir 6 caracteres.")
+                }
+                
             }
+
         }
 
         const u = new usuario("thiagosp", "123456");
@@ -41,9 +52,9 @@
         console.log(u.login);   
         console.log(u.senha);       // não é possível acessar diretamente
         console.log(u.getSenha);       // no caso do GETTER, não usamos o parênteses para acessar o método
-        u.validaSenha("123456");
+        u.autenticaSenha("123456");
         u.novaSenha = "654321";          // no SETTER, tb não usamos os parênteses
-        u.validaSenha("123456");    
+        console.log(u.getSenha)
 
     </script>
 </body>

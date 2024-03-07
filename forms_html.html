@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário HTML</title>
+    <link rel="stylesheet" href="css/form_style.css">
+</head>
+<body>
+    <h2>Formulário HTML</h2>
+    <form action="" method="GET">
+        <div>
+            <label for="name">Entrada</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="age">Idade</label>
+            <input type="text" name="age">
+        </div>
+        <!-- SELECT OPTION -->
+        <div>
+            <label for="job">Selecione a Profissão</label>
+            <select name="job">
+                <option value="programador">Programador</option>
+                <option value="analista">Analista</option>
+                <option value="tester">Tester QA</option>
+                <option value="devops">DevOps</option>
+            </select>
+        </div>
+        <div>
+            <label for="contract">Declaro ter lido os termos do contrato.</label>
+            <select name="contract">
+                <option value="sim">Sim</option>
+                <option value="nao" selected>Não</option>
+            </select>
+        </div>
+
+        <!-- Enviando FORM-->
+        <input type="submit" value="enviar">
+    </form>
+</body>
+</html>

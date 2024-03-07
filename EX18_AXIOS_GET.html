@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisições GET HTTP com Axios</title>
+    <link rel="stylesheet" href="css/axios_style.css">
+
+    <!-- Referenciando a CDN do AXIOS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <h1>Listar Usuários</h1>
+        <button id="listar">Executar requisição</button>
+    </div>
+    <div id="listagem">
+        <!-- Aqui serão listados os usuários-->
+    </div>
+    <div>
+        <h1>Criar combo a partir de valores da API</h1>
+        <button id="gerarOpcoes">Popular ComboBox</button>
+        <select name="combo" id="combo">
+            <!-- Aqui serão geradas as opções de combo / select options -->
+        </select>
+    </div>
+    <script>
+
+        document.getElementById("listar").addEventListener("click", listarUsuarios);
+        document.getElementById("gerarOpcoes").addEventListener("click", popularCombo);
+
+        // vamos usar a API JSON Placeholder
+        // GET informação de usuários e jogando resultado no html
+        function listarUsuarios() {
+
+            var url = `https://jsonplaceholder.typicode.com/users`
+            axios.get(url)
+                .then((resposta) => {
+                    resposta.data.forEach(i => {
+                        var elementoPai = document.getElementById('listagem');
+                        var elementoFilho1 = document.createElement('h2');
+                        var elementoFilho2 = document.createElement('p');
+                        elementoFilho1.textContent = i.name;
+                        elementoFilho2.textContent = i.email;
+                        elementoPai.appendChild(elementoFilho1);
+                        elementoPai.appendChild(elementoFilho2);
+                    });
+                })
+                .catch(e => console.log("Erro na execução da API"))
+        }
+
+        // Criando options para um combobox a partir de valores obtidos por API
+        function popularCombo() {
+            var url = `https://jsonplaceholder.typicode.com/users`
+            axios.get(url)
+                .then((resposta) => {
+                    resposta.data.forEach(i => {
+                        var elementoPai = document.getElementById('combo');
+                        var elementoFilho = document.createElement('option');
+                        elementoFilho.value = i.username;
+                        elementoFilho.innerHTML = i.username;
+                        elementoPai.appendChild(elementoFilho);
+                    })
+
+                })
+                .catch(e => console.log("Erro na execução da API"))          
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
