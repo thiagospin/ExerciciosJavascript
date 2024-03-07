@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisições POST HTTP com Axios</title>
+    <link rel="stylesheet" href="css/axios_style.css">
+
+    <!-- Referenciando a CDN do AXIOS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <h1>Método POST para criar um recurso</h1>
+    </div>
+
+    <div>
+        <form id="post-form">
+            <div>
+                <input type="text" id="title" placeholder="Digite o título">
+            </div>
+            <div>
+                <textarea id="body"></textarea>
+            </div>
+            
+        </form>
+    </div>
+
+
+    <script>
+
+        const url = "https://jsonplaceholder.typicode.com/posts";
+        const form = document.querySelector("#post-form");
+        const titleInput = document.querySelector("#title");
+        const bodyInput = document.querySelector("#body");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            axios
+                .post(url, {
+                    body: {title: titleInput.value,
+                           body: bodyInput.value,
+                           userId: 1}
+                })
+        })
+
+    </script>
+
+</body>
+
+</html>
