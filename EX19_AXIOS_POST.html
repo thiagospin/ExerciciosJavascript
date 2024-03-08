@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <div>
         <h1>Método POST para criar um recurso</h1>
     </div>
@@ -53,6 +52,7 @@
         document.querySelector("#post-form").addEventListener("submit", requestPost);
         document.getElementById("consultar").addEventListener("click", requestGet);
 
+        // Criando um POST com os dados digitados pelo usuário no text area
         function requestPost(event) {
 
             event.preventDefault();
@@ -73,6 +73,7 @@
         }
 
 
+        // realizando um GET com o id do objeto cadastrado previamente
         function requestGet(event) {
 
             var id_produto = document.getElementById("id-produto").value;
