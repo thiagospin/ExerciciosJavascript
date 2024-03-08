@@ -21,32 +21,70 @@
     <div>
         <form id="post-form">
             <div>
-                <input type="text" id="title" placeholder="Digite o título">
+                <textarea id="body" cols="100" rows="20"></textarea>
             </div>
             <div>
-                <textarea id="body"></textarea>
+                <input type="submit" value="Registrar Produto">
             </div>
-            
         </form>
     </div>
 
+    <div>
+        <H1>Consultar dados enviados pelo POST</H1>
+        <div id="conteiner-consulta">
+            <input type="text" id="id-produto" placeholder="Digite o ID do produto">
+            <button id="consultar">Consultar</button>
+        </div>
+    </div>
 
     <script>
 
-        const url = "https://jsonplaceholder.typicode.com/posts";
-        const form = document.querySelector("#post-form");
-        const titleInput = document.querySelector("#title");
-        const bodyInput = document.querySelector("#body");
+        // var dados = {
+        //     "name": "Samsung Galaxy book 2 pro",
+        //     "data": {
+        //         "year": 2024,
+        //         "price": 1849.99,
+        //         "CPU model": "Intel Core i7",
+        //         "Hard disk size": "1 TB"
+        //     }
+        // }
 
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
+
+        document.querySelector("#post-form").addEventListener("submit", requestPost);
+        document.getElementById("consultar").addEventListener("click", requestGet);
+
+        function requestPost(event) {
+
+            event.preventDefault();
+
+            const url_cadastro = "https://api.restful-api.dev/objects";
+
+            var dados = JSON.parse(document.getElementById("body").value);
+            console.log(dados)
+
             axios
-                .post(url, {
-                    body: {title: titleInput.value,
-                           body: bodyInput.value,
-                           userId: 1}
+                .post(url_cadastro, dados)
+                .then(response => {
+                    console.log(response);
+                    console.log(`Status da chamada: ${response.status}`);
+                    console.log(`ID do produto cadastrado: ${response.data.id}`)
+                    id_produto = response.data.id;
                 })
-        })
+        }
+
+
+        function requestGet(event) {
+
+            var id_produto = document.getElementById("id-produto").value;
+            var url_consulta = `https://api.restful-api.dev/objects/${id_produto}`
+            console.log(url_consulta);
+
+            axios
+                .get(url_consulta)
+                .then(resposta => {
+                    console.log(resposta.data);
+                })
+        }
 
     </script>
 
