@@ -14,10 +14,24 @@
             constructor(nome, matricula) {
                 this.nome = nome;
                 this.matricula = matricula;
+                this.faltas = 0; // não está nos parâmetros do construtor, mas é um atributo
             }
 
-            registra
+            registraFalta(n) {
+                this.faltas = this.faltas + n; 
+            }
 
+            abonaFalta(n) {
+                this.faltas = this.faltas - n;
+            }
+
+        }
+
+        class Aluno extends MembroEscola {
+            constructor(nome, matricula, curso) {
+                super(nome, matricula);
+                this.curso = curso;
+            }
         }
 
         class Professor extends MembroEscola {
@@ -28,8 +42,16 @@
         }
 
         const p = new Professor("Thiago", "33904", "40");
-        console.log(p.nome);
-        console.log(p.cargaHoraria);
+        const a = new Aluno("Valfrides", "22078", "Informática para Internet");
+        console.log(`Nome: ${p.nome} Matrícula: ${p.matricula} Carga Horária: ${p.cargaHoraria}`);
+        
+        //p.registraFalta(5);
+        //console.log(p.faltas)
+
+        console.log(`Nome: ${a.nome} Matrícula: ${a.matricula} Curso: ${a.curso}`);
+
+        //a.registraFalta(4);
+        //console.log(a.faltas)
 
     </script>
 </body>
