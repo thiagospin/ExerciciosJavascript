@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orientação a Objetos com Javascript - Encapsulamento</title>
 </head>
+
 <body>
     <script>
 
-        class usuario {
+        class Usuario {
 
-            #senha;
+            #senha;         // atributo privado
 
             constructor(login, senha) {
                 this.login = login;
@@ -30,9 +32,8 @@
                 return this.#senha;
             }
 
-
             set novaSenha(s) {
-                
+
                 console.log("Comprimento da senha: " + s.lenght)
 
                 if (s.lenght == 6) {
@@ -42,15 +43,13 @@
                 else {
                     console.log("A senha deve possuir 6 caracteres.")
                 }
-                
             }
-
         }
 
-        const u = new usuario("thiagosp", "123456");
+        const u = new Usuario("thiagosp", "123456");
 
-        console.log(u.login);   
-        console.log(u.senha);       // não é possível acessar diretamente
+        console.log(u.login);
+        console.log(u.#senha);       // não é possível acessar diretamente
         console.log(u.getSenha);       // no caso do GETTER, não usamos o parênteses para acessar o método
         u.autenticaSenha("123456");
         u.novaSenha = "654321";          // no SETTER, tb não usamos os parênteses
@@ -58,4 +57,5 @@
 
     </script>
 </body>
+
 </html>

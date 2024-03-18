@@ -17,11 +17,11 @@
                 this.faltas = 0; // não está nos parâmetros do construtor, mas é um atributo
             }
 
-            registraFalta(n) {
+            registrarFalta(n) {
                 this.faltas = this.faltas + n; 
             }
 
-            abonaFalta(n) {
+            abonarFalta(n) {
                 this.faltas = this.faltas - n;
             }
 
@@ -32,6 +32,10 @@
                 super(nome, matricula);
                 this.curso = curso;
             }
+
+            solicitarDeclaracao() {
+                console.log(`Declaração solicitada para o aluno ${this.nome}`);
+            }
         }
 
         class Professor extends MembroEscola {
@@ -39,18 +43,22 @@
                 super(nome, matricula);
                 this.cargaHoraria = cargaHoraria;
             }
+
+            lancarNota(matAluno, nota, disc) {
+                console.log(`Nota ${nota} lançada para o aluno ${matAluno} na disciplina ${disc}`)
+            }
         }
 
         const p = new Professor("Thiago", "33904", "40");
         const a = new Aluno("Valfrides", "22078", "Informática para Internet");
         console.log(`Nome: ${p.nome} Matrícula: ${p.matricula} Carga Horária: ${p.cargaHoraria}`);
         
-        //p.registraFalta(5);
+        p.lancarNota("22078", 8.5, "Análise e Projeto de Sistemas");
         //console.log(p.faltas)
 
         console.log(`Nome: ${a.nome} Matrícula: ${a.matricula} Curso: ${a.curso}`);
 
-        //a.registraFalta(4);
+        //a.registrarFalta(4);
         //console.log(a.faltas)
 
     </script>
