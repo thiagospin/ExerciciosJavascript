@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herança com Javascript</title>
+</head>
+<body>
+    
+
+    <script>
+
+        class MembroEscola {
+            constructor(nome, matricula) {
+                this.nome = nome;
+                this.matricula = matricula;
+                this.faltas = 0; // não está nos parâmetros do construtor, mas é um atributo
+            }
+
+            registrarFalta(n) {
+                this.faltas = this.faltas + n; 
+            }
+
+            abonarFalta(n) {
+                this.faltas = this.faltas - n;
+            }
+
+        }
+
+        class Aluno extends MembroEscola {
+            constructor(nome, matricula, curso) {
+                super(nome, matricula);
+                this.curso = curso;
+            }
+
+            solicitarDeclaracao() {
+                console.log(`Declaração solicitada para o aluno ${this.nome}`);
+            }
+        }
+
+        class Professor extends MembroEscola {
+            constructor(nome, matricula, cargaHoraria) {
+                super(nome, matricula);
+                this.cargaHoraria = cargaHoraria;
+            }
+
+            lancarNota(matAluno, nota, disc) {
+                console.log(`Nota ${nota} lançada para o aluno ${matAluno} na disciplina ${disc}`)
+            }
+        }
+
+        const p = new Professor("Thiago", "33904", "40");
+        const a = new Aluno("Valfrides", "22078", "Informática para Internet");
+        console.log(`Nome: ${p.nome} Matrícula: ${p.matricula} Carga Horária: ${p.cargaHoraria}`);
+        
+        p.lancarNota("22078", 8.5, "Análise e Projeto de Sistemas");
+        //console.log(p.faltas)
+
+        console.log(`Nome: ${a.nome} Matrícula: ${a.matricula} Curso: ${a.curso}`);
+
+        //a.registrarFalta(4);
+        //console.log(a.faltas)
+
+    </script>
+</body>
+</html>

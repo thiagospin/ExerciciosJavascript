@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientação a Objetos com Javascript - Encapsulamento</title>
+</head>
+
+<body>
+    <script>
+
+        class Cliente {
+
+            #senha;         // atributo privado
+
+            constructor(codigo, login, senha) {
+                this.codigo = codigo;
+                this.login = login;
+                this.#senha = senha;
+            }
+
+            get getSenha() {
+                return this.#senha;
+            }
+
+            set setSenha(s) {
+                
+                if (this.#validarSenha(s)) {
+                    console.log("Nova senha é válida")
+                    this.#senha = s
+                }
+                else {
+                    console.log("Senha não atende aos requisitos.")
+                }   
+            }
+
+            // método de classe, só pode ser usado internamente na classe
+            #validarSenha(s) {
+
+                //console.log(`tamanho: ${Array.from(s).length}`)
+
+                if (Array.from(s).length == 6) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            // método estático, só pode ser acessado pela classe, e não por seus objetos
+            static metodoEstatico() {
+                console.log("Este método é estático e não pode ser usado por objetos, apenas pela própria classe")
+            }
+
+        }
+
+        class ClienteEspecial extends Cliente {
+
+            #limite;        // Atributo privado
+
+            constructor(codigo, login, senha, limite) {
+                super(codigo, login, senha);
+                this.#limite = limite;
+            }
+
+            get getLimite() {
+                return this.#limite;
+            }
+
+            set setLimite(l) {
+                this.#limite = l;
+            }
+        }
+
+        class ClienteEmpresa extends Cliente {
+            constructor(codigo, login, senha, cnpj) {
+                super(codigo, login, senha);
+                this.cnpj = cnpj;
+            }
+        }
+
+        cliComum1 = new Cliente("2356", "LuisAlfredo", "369258")
+        cliEspecial1 = new ClienteEspecial("3352", "ThiagoPinheiro", "123456", 5000);
+        
+        console.log(cliComum1.getSenha);
+        cliComum1.setSenha = "258147";
+        console.log(cliComum1.getSenha);
+        //cliComum1.#validarSenha("252147"); Este método não pode ser chamado por fora da classe
+        //cliComum1.alterarAnoFiscal(2024); Este método é estático não pode ser chamado por objetos da classe
+        Cliente.metodoEstatico();
+        //cliComum1.metodoEstatico(); assim não podemos executar o método estático
+        
+        console.log(cliEspecial1.getLimite);
+        cliEspecial1.setLimite = 7500;
+        console.log(cliEspecial1.getLimite);
+
+    </script>
+</body>
+
+</html>

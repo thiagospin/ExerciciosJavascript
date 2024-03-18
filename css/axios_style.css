@@ -1,0 +1,26 @@
+body {
+    padding-bottom: 500px;
+    background-color:floralwhite;
+}
+
+div {
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color:gainsboro;
+    font-family: sans-serif;
+}
+
+div input,
+div label,
+div button {
+    display: block;
+}
+
+#conteiner-consulta {
+    background-color:rgb(188, 197, 199);
+    margin: 10px 10px 10px 10px;
+    height: 25px;
+    display: flex;
+    padding: 25px;
+}
